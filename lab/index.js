@@ -2,6 +2,10 @@ const builtinConstructors = require("./constructors");
 const SIA_TYPES = require("./types");
 const utfz = require("./utfz");
 const packr = require("../benchmark/msgpackr");
+const { Buffer: BufferShim } = require("buffer/");
+
+const BufferClass = typeof Buffer === "undefined" ? BufferShim : Buffer;
+Buffer = BufferClass;
 
 class Sia {
   constructor({ size = 33554432, constructors = builtinConstructors } = {}) {

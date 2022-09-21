@@ -270,7 +270,7 @@ class Sia {
             return;
           }
 
-          case Buffer: {
+          case BufferClass: {
             const { length } = item;
             if (item.length < 0x100) {
               this.writeUInt8(SIA_TYPES.bin8);
